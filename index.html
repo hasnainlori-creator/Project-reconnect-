@@ -328,7 +328,7 @@
             color: #555;
         }
 
-        /* PREMIUM CAROUSEL SLIDER */
+        /* PREMIUM CAROUSEL SLIDER STYLES */
         .carousel-container {
             position: relative;
             max-width: 1000px;
@@ -393,46 +393,6 @@
                 0 0 0 1px rgba(212, 163, 115, 0.2);
         }
 
-        .image-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--secondary) 0%, #fff 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .image-placeholder::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 30% 50%, rgba(212, 163, 115, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 70% 50%, rgba(193, 119, 103, 0.1) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .placeholder-icon {
-            font-size: 5rem;
-            margin-bottom: 1.5rem;
-            opacity: 0.7;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .placeholder-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: var(--dark);
-            font-style: italic;
-            opacity: 0.8;
-        }
-
         .slide-caption {
             margin-top: 20px;
             text-align: center;
@@ -459,7 +419,6 @@
             font-style: italic;
         }
 
-        /* Carousel Controls */
         .carousel-btn {
             position: absolute;
             top: 50%;
@@ -494,7 +453,6 @@
             right: 0;
         }
 
-        /* Carousel Indicators */
         .carousel-indicators {
             display: flex;
             gap: 12px;
@@ -523,7 +481,6 @@
             border-radius: 5px;
         }
 
-        /* Carousel Counter */
         .carousel-counter {
             position: absolute;
             top: 20px;
@@ -901,6 +858,7 @@
                 padding: 60px 20px;
             }
 
+            /* Responsive Slider */
             .carousel-container {
                 padding: 40px 20px;
             }
@@ -930,14 +888,6 @@
 
             .carousel-next {
                 right: -10px;
-            }
-
-            .placeholder-icon {
-                font-size: 3rem;
-            }
-
-            .placeholder-text {
-                font-size: 1.3rem;
             }
         }
 
@@ -1091,127 +1041,98 @@
             
             <div class="carousel-container">
                 <div class="carousel-track" id="carouselTrack">
+                    
                     <div class="carousel-slide active" data-index="0">
                         <div class="slide-image">
-                            <div class="image-placeholder">
-                                <div class="placeholder-icon">📸</div>
-                                <div class="placeholder-text">Van memories</div>
-                            </div>
+                            <img src="IMG_20250720_024711.jpg" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <div class="slide-caption">
-                            <h3>The Beginning</h3>
-                            <p>Where it all started</p>
+                            <h3>Memories</h3>
+                            <p>Moments that matter</p>
                         </div>
                     </div>
 
                     <div class="carousel-slide" data-index="1">
                         <div class="slide-image">
-                            <div class="image-placeholder">
-                                <div class="placeholder-icon">🎬</div>
-                                <div class="placeholder-text">That bunk day</div>
-                            </div>
+                            <img src="IMG_20260206_224245.jpg" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <div class="slide-caption">
-                            <h3>Our Great Escape</h3>
-                            <p>The theater adventure</p>
+                            <h3>Us</h3>
+                            <p>Frozen in time</p>
                         </div>
                     </div>
 
                     <div class="carousel-slide" data-index="2">
                         <div class="slide-image">
-                            <div class="image-placeholder">
-                                <div class="placeholder-icon">🍅</div>
-                                <div class="placeholder-text">You blushing</div>
-                            </div>
+                            <img src="IMG_20260206_224322.jpg" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <div class="slide-caption">
-                            <h3>Tomato Red</h3>
-                            <p>The moment you blushed</p>
+                            <h3>Together</h3>
+                            <p>Just you and me</p>
                         </div>
                     </div>
 
                     <div class="carousel-slide" data-index="3">
                         <div class="slide-image">
-                            <div class="image-placeholder">
-                                <div class="placeholder-icon">👀</div>
-                                <div class="placeholder-text">Your beautiful eyes</div>
-                            </div>
+                            <img src="IMG_20260206_224343.jpg" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <div class="slide-caption">
-                            <h3>Those Eyes</h3>
-                            <p>That looked right into my soul</p>
+                            <h3>Smiles</h3>
+                            <p>The best kind of happiness</p>
                         </div>
                     </div>
 
                     <div class="carousel-slide" data-index="4">
                         <div class="slide-image">
-                            <div class="image-placeholder">
-                                <div class="placeholder-icon">🚌</div>
-                                <div class="placeholder-text">Exam day bus ride</div>
-                            </div>
+                            <img src="IMG_20260206_224358.jpg" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <div class="slide-caption">
-                            <h3>Board Exams</h3>
-                            <p>Side by side on the bus</p>
+                            <h3>Laughter</h3>
+                            <p>Our favorite sound</p>
                         </div>
                     </div>
 
                     <div class="carousel-slide" data-index="5">
                         <div class="slide-image">
-                            <div class="image-placeholder">
-                                <div class="placeholder-icon">😄</div>
-                                <div class="placeholder-text">Us being silly</div>
-                            </div>
+                            <img src="IMG_20260206_224719.jpg" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <div class="slide-caption">
-                            <h3>Pure Joy</h3>
-                            <p>Being ourselves together</p>
+                            <h3>Adventures</h3>
+                            <p>Going places together</p>
                         </div>
                     </div>
-                        <section id="gallery">
-        <div class="container">
-            <h2 class="section-title">Frozen in Time</h2>
-            <div class="gallery">
-                <div class="gallery-item" style="padding: 0;">
-                    <img src="IMG_20250720_024711.jpg" alt="Memory" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
 
-                <div class="gallery-item" style="padding: 0;">
-                    <img src="IMG_20260206_224245.jpg" alt="Memory" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
+                    <div class="carousel-slide" data-index="6">
+                        <div class="slide-image">
+                            <img src="IMG_20260206_224741.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="slide-caption">
+                            <h3>Close</h3>
+                            <p>Never let go</p>
+                        </div>
+                    </div>
 
-                <div class="gallery-item" style="padding: 0;">
-                    <img src="IMG_20260206_224322.jpg" alt="Memory" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
+                    <div class="carousel-slide" data-index="7">
+                        <div class="slide-image">
+                            <img src="Snapchat-1076572198.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="slide-caption">
+                            <h3>Snapshots</h3>
+                            <p>Little moments</p>
+                        </div>
+                    </div>
 
-                <div class="gallery-item" style="padding: 0;">
-                    <img src="IMG_20260206_224343.jpg" alt="Memory" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
+                    <div class="carousel-slide" data-index="8">
+                        <div class="slide-image">
+                            <img src="Snapchat-1599953216.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="slide-caption">
+                            <h3>Forever</h3>
+                            <p>My favorite view</p>
+                        </div>
+                    </div>
 
-                <div class="gallery-item" style="padding: 0;">
-                    <img src="IMG_20260206_224358.jpg" alt="Memory" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
-
-                <div class="gallery-item" style="padding: 0;">
-                    <img src="IMG_20260206_224719.jpg" alt="Memory" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-
-                <div class="gallery-item" style="padding: 0;">
-                    <img src="IMG_20260206_224741.jpg" alt="Memory" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-
-                <div class="gallery-item" style="padding: 0;">
-                    <img src="Snapchat-1076572198.jpg" alt="Memory" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-
-                <div class="gallery-item" style="padding: 0;">
-                    <img src="Snapchat-1599953216.jpg" alt="Memory" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-            </div>
-        </div>
-                        </section>
-                    
-
 
                 <button class="carousel-btn carousel-prev" onclick="moveSlide(-1)">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1242,10 +1163,6 @@
                     <span class="total-slides">9</span>
                 </div>
             </div>
-
-            <p style="text-align: center; margin-top: 60px; font-size: 1.1rem; color: var(--accent); font-style: italic; opacity: 0.8;">
-                Replace these placeholders with your actual photos for a personal touch
-            </p>
         </div>
     </section>
 
@@ -1471,7 +1388,7 @@
     <script>
         // Carousel functionality
         let currentSlideIndex = 0;
-        const totalSlides = 9;
+        const totalSlides = 9; // UPDATED to match your 9 images
 
         function updateCarousel() {
             const slides = document.querySelectorAll('.carousel-slide');
