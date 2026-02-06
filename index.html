@@ -838,7 +838,7 @@
 
 
         
-                /* Responsive - PORTRAIT MODE FIX */
+                        /* Responsive - FIXED TO SHOW FULL PHOTOS (NO CROP) */
         @media (max-width: 768px) {
             .timeline::before {
                 left: 20px;
@@ -859,59 +859,54 @@
             }
 
             section {
-                padding: 60px 10px;
+                padding: 60px 20px;
             }
 
-            /* MOBILE SLIDER - TALL PORTRAIT MODE */
+            /* CAROUSEL FIX FOR MOBILE */
             .carousel-container {
-                padding: 10px 0;
-                margin: 20px auto;
+                padding: 20px 0;
                 width: 100%;
-                overflow: visible; 
+                overflow: hidden;
             }
 
             .carousel-track {
-                height: 600px; /* TALLER track for vertical photos */
+                height: 500px; /* Good height for phone screens */
             }
 
             .carousel-slide {
-                width: 85vw; /* 85% of screen width */
-                max-width: none;
-                height: 550px; /* TALLER slide */
+                width: 85%; /* Standard width so it's not too wide */
+                max-width: 350px;
+                height: 450px; 
                 top: 0;
                 left: 50%;
             }
-            
+
             .slide-image {
                 width: 100%;
-                height: 100%; /* Fills the tall slide */
-                background: transparent; /* No white background if ratio is off */
-                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+                height: 380px; /* Height for the image area */
+                background: transparent; /* Clean background */
+                box-shadow: none; /* remove shadow to look cleaner with contain */
             }
-            
-            /* THIS IS THE KEY LINE: */
+
+            /* THIS IS THE IMPORTANT CHANGE */
             .slide-image img {
                 width: 100%;
                 height: 100%;
-                object-fit: cover; /* Keeps it filling the box */
-                object-position: center top; /* Focuses on faces/top of image */
+                object-fit: contain; /* SHOWS WHOLE IMAGE - NO ZOOM/CROP */
+                object-position: center;
+                border-radius: 8px;
             }
 
             .slide-caption {
-                position: absolute;
-                bottom: 20px;
-                left: 0;
-                width: 100%;
-                background: rgba(255, 255, 255, 0.9);
-                padding: 10px;
-                margin-top: 0;
+                position: relative;
+                transform: translateY(0);
+                opacity: 1;
+                margin-top: 10px;
             }
 
             .carousel-btn {
                 width: 40px;
                 height: 40px;
-                background: rgba(255,255,255,0.9);
-                top: 50%;
             }
 
             .carousel-prev { left: 5px; }
