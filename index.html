@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For You ♡</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Crimson+Text:ital@0;1&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Crimson+Text:ital@0;1&display=swap"
+        rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -19,6 +22,12 @@
             --dark: #2c2416;
             --light: #fdfbf7;
             --shadow: rgba(44, 36, 22, 0.1);
+        }
+
+        /* 3D Perspective for Tilt Effects */
+        .tilt-container {
+            perspective: 1000px;
+            transform-style: preserve-3d;
         }
 
         html {
@@ -51,8 +60,15 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-50px) rotate(180deg); }
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-50px) rotate(180deg);
+            }
         }
 
         /* Hero Section */
@@ -111,6 +127,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -118,12 +135,21 @@
         }
 
         @keyframes revealText {
-            to { opacity: 1; }
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes bounce {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(-10px); }
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(-10px);
+            }
         }
 
         /* Section Styles */
@@ -291,13 +317,15 @@
         .miss-card {
             background: white;
             padding: 40px 30px;
-            border-radius: 8px;
-            box-shadow: 0 5px 30px var(--shadow);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px var(--shadow);
             text-align: center;
             cursor: pointer;
-            transition: all 0.4s ease;
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
             opacity: 0;
             transform: translateY(30px);
+            transform-style: preserve-3d;
+            will-change: transform;
         }
 
         .miss-card.visible {
@@ -305,14 +333,14 @@
             transform: translateY(0);
         }
 
-        .miss-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 40px var(--shadow);
+        .miss-card:active {
+            transform: scale(0.95);
         }
 
         .miss-card .icon {
             font-size: 3rem;
             margin-bottom: 1rem;
+            transform: translateZ(30px);
         }
 
         .miss-card h3 {
@@ -320,19 +348,22 @@
             font-size: 1.5rem;
             margin-bottom: 1rem;
             color: var(--dark);
+            transform: translateZ(20px);
         }
 
         .miss-card p {
             font-size: 1.1rem;
             line-height: 1.6;
             color: #555;
+            transform: translateZ(10px);
         }
 
-        
+
         /* PREMIUM CAROUSEL SLIDER STYLES */
         .carousel-container {
             position: relative;
-            max-width: 1200px; /* Increased */
+            max-width: 1200px;
+            /* Increased */
             margin: 50px auto;
             padding: 60px 20px;
             perspective: 2000px;
@@ -340,7 +371,8 @@
 
         .carousel-track {
             position: relative;
-            height: 650px; /* Taller to fit bigger images */
+            height: 650px;
+            /* Taller to fit bigger images */
             transform-style: preserve-3d;
         }
 
@@ -348,15 +380,17 @@
             position: absolute;
             top: 0;
             left: 50%;
-            width: 800px; /* MUCH WIDER now */
-            height: 600px; /* BIGGER height */
+            width: 800px;
+            /* MUCH WIDER now */
+            height: 600px;
+            /* BIGGER height */
             transform: translateX(-50%) rotateY(20deg) translateZ(-400px);
             opacity: 0;
             transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
             pointer-events: none;
         }
 
-        
+
         .carousel-slide.active {
             transform: translateX(-50%) rotateY(0deg) translateZ(0);
             opacity: 1;
@@ -378,11 +412,12 @@
 
         .slide-image {
             width: 100%;
-            height: 500px; /* Taller image area */
+            height: 500px;
+            /* Taller image area */
             background: white;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 
+            box-shadow:
                 0 25px 50px -12px rgba(44, 36, 22, 0.25),
                 0 0 0 1px rgba(212, 163, 115, 0.1);
             position: relative;
@@ -390,7 +425,7 @@
         }
 
         .carousel-slide.active .slide-image {
-            box-shadow: 
+            box-shadow:
                 0 40px 80px -20px rgba(44, 36, 22, 0.3),
                 0 0 0 1px rgba(212, 163, 115, 0.2);
         }
@@ -542,11 +577,13 @@
         .growth-item {
             background: white;
             padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 5px 30px var(--shadow);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px var(--shadow);
             opacity: 0;
             transform: translateX(-30px);
-            transition: all 0.8s ease;
+            transition: opacity 0.8s ease, transform 0.1s ease, box-shadow 0.1s ease;
+            transform-style: preserve-3d;
+            will-change: transform;
         }
 
         .growth-item.visible {
@@ -559,11 +596,13 @@
             font-size: 1.8rem;
             margin-bottom: 1rem;
             color: var(--accent);
+            transform: translateZ(20px);
         }
 
         .growth-item p {
             font-size: 1.2rem;
             line-height: 1.8;
+            transform: translateZ(10px);
         }
 
         /* Interactive Reasons */
@@ -578,28 +617,23 @@
             background: var(--primary);
             color: white;
             padding: 30px 20px;
-            border-radius: 8px;
+            border-radius: 12px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: opacity 0.8s ease, transform 0.1s ease, background 0.3s ease;
             min-height: 120px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.1rem;
-            box-shadow: 0 3px 15px var(--shadow);
+            box-shadow: 0 5px 15px var(--shadow);
             opacity: 0;
-            transform: rotateY(180deg);
+            transform-style: preserve-3d;
+            will-change: transform;
         }
 
         .reason-card.visible {
             opacity: 1;
-            transform: rotateY(0);
-        }
-
-        .reason-card:hover {
-            background: var(--accent);
-            transform: scale(1.05);
         }
 
         .reason-card.revealed {
@@ -655,12 +689,14 @@
         .promise-card {
             background: white;
             padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 5px 30px var(--shadow);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px var(--shadow);
             position: relative;
             opacity: 0;
             transform: scale(0.95);
-            transition: all 0.8s ease;
+            transition: opacity 0.8s ease, transform 0.1s ease, box-shadow 0.1s ease;
+            transform-style: preserve-3d;
+            will-change: transform;
         }
 
         .promise-card.visible {
@@ -676,11 +712,13 @@
             font-size: 3rem;
             color: var(--primary);
             opacity: 0.3;
+            transform: translateZ(10px);
         }
 
         .promise-card p {
             font-size: 1.4rem;
             line-height: 1.8;
+            transform: translateZ(20px);
         }
 
         /* Future Section */
@@ -694,12 +732,14 @@
         .future-item {
             background: linear-gradient(135deg, white 0%, var(--secondary) 100%);
             padding: 50px 30px;
-            border-radius: 8px;
+            border-radius: 12px;
             text-align: center;
-            box-shadow: 0 5px 30px var(--shadow);
+            box-shadow: 0 10px 30px var(--shadow);
             opacity: 0;
             transform: translateY(30px);
-            transition: all 0.8s ease;
+            transition: opacity 0.8s ease, transform 0.1s ease, box-shadow 0.1s ease;
+            transform-style: preserve-3d;
+            will-change: transform;
         }
 
         .future-item.visible {
@@ -710,6 +750,7 @@
         .future-item .emoji {
             font-size: 4rem;
             margin-bottom: 1rem;
+            transform: translateZ(30px);
         }
 
         .future-item h3 {
@@ -717,11 +758,13 @@
             font-size: 1.8rem;
             margin-bottom: 1rem;
             color: var(--dark);
+            transform: translateZ(20px);
         }
 
         .future-item p {
             font-size: 1.2rem;
             line-height: 1.7;
+            transform: translateZ(10px);
         }
 
         /* No Pressure */
@@ -776,13 +819,13 @@
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
         }
 
         .contact-btn:hover {
             background: var(--accent);
             transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
         }
 
         .contact-btn.secondary {
@@ -837,8 +880,7 @@
         }
 
 
-        
-                        /* Responsive - FIXED TO SHOW FULL PHOTOS (NO CROP) */
+
         @media (max-width: 768px) {
             .timeline::before {
                 left: 20px;
@@ -862,59 +904,112 @@
                 padding: 60px 20px;
             }
 
+            /* Better Card Spacing for mobile */
+            .miss-grid,
+            .growth-grid,
+            .promises-grid,
+            .future-grid {
+                gap: 20px;
+            }
+
+            .miss-card,
+            .growth-item,
+            .promise-card,
+            .future-item {
+                padding: 25px 20px;
+            }
+
             /* CAROUSEL FIX FOR MOBILE */
             .carousel-container {
-                padding: 20px 0;
+                padding: 10px 0;
                 width: 100%;
                 overflow: hidden;
             }
 
             .carousel-track {
-                height: 500px; /* Good height for phone screens */
+                height: 550px;
+                /* Taller height for phone screens to be portrait */
             }
 
             .carousel-slide {
-                width: 85%; /* Standard width so it's not too wide */
-                max-width: 350px;
-                height: 450px; 
+                width: 80%;
+                /* Standard width so it's not too wide */
+                max-width: 330px;
+                height: 480px;
                 top: 0;
                 left: 50%;
+                transform: translateX(-50%) translateZ(0) !important;
+                /* Flatten 3D tilt slightly on mobile for visibility */
+            }
+
+            .carousel-slide.prev {
+                transform: translateX(-130%) scale(0.85) !important;
+                opacity: 0.4 !important;
+            }
+
+            .carousel-slide.next {
+                transform: translateX(30%) scale(0.85) !important;
+                opacity: 0.4 !important;
             }
 
             .slide-image {
                 width: 100%;
-                height: 380px; /* Height for the image area */
-                background: transparent; /* Clean background */
-                box-shadow: none; /* remove shadow to look cleaner with contain */
+                height: 420px;
+                background: var(--light);
+                box-shadow: 0 10px 30px var(--shadow) !important;
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
             }
 
             /* THIS IS THE IMPORTANT CHANGE */
             .slide-image img {
-                width: 100%;
-                height: 100%;
-                object-fit: contain; /* SHOWS WHOLE IMAGE - NO ZOOM/CROP */
+                max-width: 100% !important;
+                max-height: 100% !important;
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: contain !important;
                 object-position: center;
-                border-radius: 8px;
+                border-radius: 0;
+                background-color: transparent;
+                box-shadow: none !important;
             }
 
             .slide-caption {
                 position: relative;
-                transform: translateY(0);
-                opacity: 1;
-                margin-top: 10px;
+                transform: translateY(0) !important;
+                opacity: 0 !important;
+                margin-top: 15px;
+            }
+
+            .carousel-slide.active .slide-caption {
+                opacity: 1 !important;
             }
 
             .carousel-btn {
                 width: 40px;
                 height: 40px;
+                top: 50%;
+                background: rgba(255, 255, 255, 0.8);
             }
 
-            .carousel-prev { left: 5px; }
-            .carousel-next { right: 5px; }
+            .carousel-prev {
+                left: 10px;
+            }
+
+            .carousel-next {
+                right: 10px;
+            }
+
+            .carousel-indicators {
+                margin-top: 20px;
+            }
         }
 
 
-        
+
 
         /* Hearts animation */
         @keyframes floatHeart {
@@ -922,12 +1017,15 @@
                 transform: translateY(100vh) rotate(0deg);
                 opacity: 0;
             }
+
             10% {
                 opacity: 1;
             }
+
             90% {
                 opacity: 1;
             }
+
             100% {
                 transform: translateY(-100px) rotate(360deg);
                 opacity: 0;
@@ -946,6 +1044,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="particles" id="particles"></div>
 
@@ -961,14 +1060,19 @@
         <div class="container">
             <h2 class="section-title">My Dearest</h2>
             <div class="letter">
-                <p>I know words on a screen are small compared to what we shared. But I wanted a way to show you, not just tell you, that you are always on my mind.</p>
-                
-                <p>I've spent so much time thinking about us—about the way we started, the way we laughed, and the way you looked at me. I'm not writing this to ask for forgiveness or to undo the past. I'm writing this because you are special, and our connection is something I cherish deeply.</p>
-                
-                <p>I've done a lot of thinking about who I was and who I am becoming. I realize now how lucky I was that you saw past everything to find the real me. You deserved the best version of me then, and you certainly deserve it now.</p>
-                
+                <p>I know words on a screen are small compared to what we shared. But I wanted a way to show you, not
+                    just tell you, that you are always on my mind.</p>
+
+                <p>I've spent so much time thinking about us—about the way we started, the way we laughed, and the way
+                    you looked at me. I'm not writing this to ask for forgiveness or to undo the past. I'm writing this
+                    because you are special, and our connection is something I cherish deeply.</p>
+
+                <p>I've done a lot of thinking about who I was and who I am becoming. I realize now how lucky I was that
+                    you saw past everything to find the real me. You deserved the best version of me then, and you
+                    certainly deserve it now.</p>
+
                 <p>Take your time with this. No pressure, no demands. Just a reminder of how much you mean to me.</p>
-                
+
                 <div class="signature">Always yours</div>
             </div>
         </div>
@@ -983,7 +1087,9 @@
                     <div class="content">
                         <div class="date">Love at First Sight</div>
                         <h3>The School Van</h3>
-                        <p>I was dead the moment I saw you. You were asking the driver why "this creep" (me, the so-called playboy 😔) was allowed in the van. But in that moment, my old reputation didn't matter—I only saw you.</p>
+                        <p>I was dead the moment I saw you. You were asking the driver why "this creep" (me, the
+                            so-called playboy 😔) was allowed in the van. But in that moment, my old reputation didn't
+                            matter—I only saw you.</p>
                     </div>
                 </div>
 
@@ -992,7 +1098,9 @@
                     <div class="content">
                         <div class="date">Our Great Escape</div>
                         <h3>The First Date</h3>
-                        <p>Convincing you to bunk school was the hardest mission of my life! We went to the Inox theater, walked through that beautiful place, clicked pictures, and "watched a movie" (though let's be honest, we were a little distracted doing something romantic 🫣).</p>
+                        <p>Convincing you to bunk school was the hardest mission of my life! We went to the Inox
+                            theater, walked through that beautiful place, clicked pictures, and "watched a movie"
+                            (though let's be honest, we were a little distracted doing something romantic 🫣).</p>
                     </div>
                 </div>
 
@@ -1001,7 +1109,8 @@
                     <div class="content">
                         <div class="date">The Perfect Day</div>
                         <h3>10th Board Exams</h3>
-                        <p>Taking the same bus during exams. Sitting next to you. The moment I kissed your hand for the first time and you turned tomato red! That was pure magic.</p>
+                        <p>Taking the same bus during exams. Sitting next to you. The moment I kissed your hand for the
+                            first time and you turned tomato red! That was pure magic.</p>
                     </div>
                 </div>
 
@@ -1010,7 +1119,8 @@
                     <div class="content">
                         <div class="date">Inside Jokes</div>
                         <h3>Our Secret Language</h3>
-                        <p>The looks across the room. The phrases only we understood. We built a whole world that was just ours.</p>
+                        <p>The looks across the room. The phrases only we understood. We built a whole world that was
+                            just ours.</p>
                     </div>
                 </div>
             </div>
@@ -1030,7 +1140,8 @@
                 <div class="miss-card">
                     <div class="icon">🍅</div>
                     <h3>Your Blush</h3>
-                    <p>How your face turned red when I held your hand or teased you. It was the cutest thing in the world.</p>
+                    <p>How your face turned red when I held your hand or teased you. It was the cutest thing in the
+                        world.</p>
                 </div>
 
                 <div class="miss-card">
@@ -1042,13 +1153,15 @@
                 <div class="miss-card">
                     <div class="icon">🗣️</div>
                     <h3>Your Scolding</h3>
-                    <p>Even when you were mad at me for being a "troublemaker." I miss your voice keeping me in check.</p>
+                    <p>Even when you were mad at me for being a "troublemaker." I miss your voice keeping me in check.
+                    </p>
                 </div>
 
                 <div class="miss-card">
                     <div class="icon">🚐</div>
                     <h3>The Van Rides</h3>
-                    <p>Just sitting near you on the way to school. Those simple moments were the highlight of my day.</p>
+                    <p>Just sitting near you on the way to school. Those simple moments were the highlight of my day.
+                    </p>
                 </div>
 
                 <div class="miss-card">
@@ -1063,10 +1176,10 @@
     <section id="gallery">
         <div class="container">
             <h2 class="section-title">Frozen in Time</h2>
-            
+
             <div class="carousel-container">
                 <div class="carousel-track" id="carouselTrack">
-                    
+
                     <div class="carousel-slide active" data-index="0">
                         <div class="slide-image">
                             <img src="IMG_20250720_024711.jpg" style="width: 100%; height: 100%; object-fit: cover;">
@@ -1139,7 +1252,7 @@
 
                     <div class="carousel-slide" data-index="7">
                         <div class="slide-image">
-                            <img src="Snapchat-1076572198.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="img_1.jpg" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <div class="slide-caption">
                             <h3>Snapshots</h3>
@@ -1149,7 +1262,7 @@
 
                     <div class="carousel-slide" data-index="8">
                         <div class="slide-image">
-                            <img src="Snapchat-1599953216.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="img_2.jpg" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <div class="slide-caption">
                             <h3>Forever</h3>
@@ -1195,16 +1308,20 @@
         <div class="container">
             <h2 class="section-title">What I Now Understand</h2>
             <div class="accountability-text">
-                <p>I understand now that what we had wasn't just a high school crush. It was the kind of connection that changes a person. You saw past the reputation I had and found the real me underneath.</p>
+                <p>I understand now that what we had wasn't just a high school crush. It was the kind of connection that
+                    changes a person. You saw past the reputation I had and found the real me underneath.</p>
             </div>
             <div class="accountability-text">
-                <p>I realize that those risky moments—sneaking out, the van rides—weren't just adrenaline. They were the moments I felt most alive because I was with you.</p>
+                <p>I realize that those risky moments—sneaking out, the van rides—weren't just adrenaline. They were the
+                    moments I felt most alive because I was with you.</p>
             </div>
             <div class="accountability-text">
-                <p>I understand that I wasn't always the easiest person to be with, but your patience meant everything to me. You taught me what it means to actually care about someone.</p>
+                <p>I understand that I wasn't always the easiest person to be with, but your patience meant everything
+                    to me. You taught me what it means to actually care about someone.</p>
             </div>
             <div class="accountability-text">
-                <p>Most importantly, I know now that letting you go was the only mistake that actually matters. I see clearly what I'm missing.</p>
+                <p>Most importantly, I know now that letting you go was the only mistake that actually matters. I see
+                    clearly what I'm missing.</p>
             </div>
         </div>
     </section>
@@ -1215,22 +1332,27 @@
             <div class="growth-grid">
                 <div class="growth-item">
                     <h3>Accepting, Not Changing</h3>
-                    <p>I spent time wanting you to change certain things, thinking it would make us better. I realize now that was wrong. I'm done trying to change you. I just want to love you exactly as you are.</p>
+                    <p>I spent time wanting you to change certain things, thinking it would make us better. I realize
+                        now that was wrong. I'm done trying to change you. I just want to love you exactly as you are.
+                    </p>
                 </div>
 
                 <div class="growth-item">
                     <h3>Respecting Your Freedom</h3>
-                    <p>I know I give you my time, my ear, and my everything. But I also learned that I can only offer you choices, not force your hand. You have to be the one to choose us.</p>
+                    <p>I know I give you my time, my ear, and my everything. But I also learned that I can only offer
+                        you choices, not force your hand. You have to be the one to choose us.</p>
                 </div>
 
                 <div class="growth-item">
                     <h3>Unconditional Support</h3>
-                    <p>My dedication hasn't wavered. I'm still the one who listens and gives you everything. I'm just learning to do it without expecting you to be someone else in return.</p>
+                    <p>My dedication hasn't wavered. I'm still the one who listens and gives you everything. I'm just
+                        learning to do it without expecting you to be someone else in return.</p>
                 </div>
 
                 <div class="growth-item">
                     <h3>Letting Go of Control</h3>
-                    <p>I've realized that the tightest grip loses the sand the fastest. I'm learning to hold us loosely—giving you the space to be yourself, hoping you'll choose to be with me.</p>
+                    <p>I've realized that the tightest grip loses the sand the fastest. I'm learning to hold us
+                        loosely—giving you the space to be yourself, hoping you'll choose to be with me.</p>
                 </div>
             </div>
         </div>
@@ -1239,7 +1361,8 @@
     <section id="reasons">
         <div class="container">
             <h2 class="section-title">Why I Want Us to Try Again</h2>
-            <p style="text-align: center; font-size: 1.3rem; margin-bottom: 20px;">Click each card to reveal a reason</p>
+            <p style="text-align: center; font-size: 1.3rem; margin-bottom: 20px;">Click each card to reveal a reason
+            </p>
             <div class="reasons-grid">
                 <div class="reason-card" onclick="revealReason(this)">
                     <span class="hidden-text">Because your happiness is my priority</span>
@@ -1301,16 +1424,20 @@
             <h2 class="section-title">I'm Sorry</h2>
             <div class="apology-list">
                 <div class="apology-item">
-                    I'm sorry for trying to change you. I thought I was helping us, but I realize now that I should have just loved you for who you are.
+                    I'm sorry for trying to change you. I thought I was helping us, but I realize now that I should have
+                    just loved you for who you are.
                 </div>
                 <div class="apology-item">
-                    I'm sorry for not realizing sooner that I can't control the outcome. I can give you my all and offer you choices, but I can't force you to choose me.
+                    I'm sorry for not realizing sooner that I can't control the outcome. I can give you my all and offer
+                    you choices, but I can't force you to choose me.
                 </div>
                 <div class="apology-item">
-                    I'm sorry if I ever made you feel pressured. I wanted "us" so badly that I forgot that you need the freedom to decide what you want too.
+                    I'm sorry if I ever made you feel pressured. I wanted "us" so badly that I forgot that you need the
+                    freedom to decide what you want too.
                 </div>
                 <div class="apology-item">
-                    I'm sorry for the times I let my old reputation or my ego get in the way of the real connection we had in that school van.
+                    I'm sorry for the times I let my old reputation or my ego get in the way of the real connection we
+                    had in that school van.
                 </div>
             </div>
         </div>
@@ -1321,19 +1448,24 @@
             <h2 class="section-title">My Promises to You</h2>
             <div class="promises-grid">
                 <div class="promise-card">
-                    <p>I promise to stop trying to mold you. You are enough just as you are, and I will embrace every part of you without trying to fix things that aren't broken.</p>
+                    <p>I promise to stop trying to mold you. You are enough just as you are, and I will embrace every
+                        part of you without trying to fix things that aren't broken.</p>
                 </div>
                 <div class="promise-card">
-                    <p>I promise to keep giving you my time, my ears, and my heart. You know I'm already doing this, and I promise that effort won't stop.</p>
+                    <p>I promise to keep giving you my time, my ears, and my heart. You know I'm already doing this, and
+                        I promise that effort won't stop.</p>
                 </div>
                 <div class="promise-card">
-                    <p>I promise to respect your freedom. I will offer you my love and a path forward, but I will step back and let you make the choice.</p>
+                    <p>I promise to respect your freedom. I will offer you my love and a path forward, but I will step
+                        back and let you make the choice.</p>
                 </div>
                 <div class="promise-card">
-                    <p>I promise that the "reputation" I had died the day I saw you in that van. Since that moment, my eyes have only looked for you.</p>
+                    <p>I promise that the "reputation" I had died the day I saw you in that van. Since that moment, my
+                        eyes have only looked for you.</p>
                 </div>
                 <div class="promise-card">
-                    <p>I promise to keep the spark alive. Whether it's sneaking out or just sitting on a bus, I promise to make even the boring moments feel like an adventure.</p>
+                    <p>I promise to keep the spark alive. Whether it's sneaking out or just sitting on a bus, I promise
+                        to make even the boring moments feel like an adventure.</p>
                 </div>
             </div>
         </div>
@@ -1346,25 +1478,29 @@
                 <div class="future-item">
                     <div class="emoji">☕</div>
                     <h3>Morning Rituals</h3>
-                    <p>Coffee together before the world wakes up. Sharing our dreams from the night before and plans for the day ahead.</p>
+                    <p>Coffee together before the world wakes up. Sharing our dreams from the night before and plans for
+                        the day ahead.</p>
                 </div>
 
                 <div class="future-item">
                     <div class="emoji">🌍</div>
                     <h3>Adventures Await</h3>
-                    <p>Exploring new places together. Getting lost in new cities. Creating stories we'll tell for years to come.</p>
+                    <p>Exploring new places together. Getting lost in new cities. Creating stories we'll tell for years
+                        to come.</p>
                 </div>
 
                 <div class="future-item">
                     <div class="emoji">🏡</div>
                     <h3>Building a Home</h3>
-                    <p>Not just a place, but a feeling. A space that's ours, filled with love, laughter, and the life we create together.</p>
+                    <p>Not just a place, but a feeling. A space that's ours, filled with love, laughter, and the life we
+                        create together.</p>
                 </div>
 
                 <div class="future-item">
                     <div class="emoji">💑</div>
                     <h3>Growing Together</h3>
-                    <p>Supporting each other's dreams. Celebrating victories. Weathering storms. Becoming better versions of ourselves, together.</p>
+                    <p>Supporting each other's dreams. Celebrating victories. Weathering storms. Becoming better
+                        versions of ourselves, together.</p>
                 </div>
             </div>
         </div>
@@ -1374,10 +1510,15 @@
         <div class="container">
             <h2 class="section-title">The Choice is Yours</h2>
             <div class="message">
-                <p>I want you to know there's no pressure here. This isn't about convincing you or making you feel obligated.</p>
-                <p style="margin-top: 2rem;">Whatever you decide, I'll respect it. I can offer you my love, my changes, and my heart, but the choice is yours.</p>
-                <p style="margin-top: 2rem;">I just needed you to know how I feel. You deserved to know that you mattered—that you still matter. That what we had in that van, in that theater, and on that bus was real.</p>
-                <p style="margin-top: 2rem;">Thank you for being you. Thank you for the time we had. And thank you for taking the time to see this.</p>
+                <p>I want you to know there's no pressure here. This isn't about convincing you or making you feel
+                    obligated.</p>
+                <p style="margin-top: 2rem;">Whatever you decide, I'll respect it. I can offer you my love, my changes,
+                    and my heart, but the choice is yours.</p>
+                <p style="margin-top: 2rem;">I just needed you to know how I feel. You deserved to know that you
+                    mattered—that you still matter. That what we had in that van, in that theater, and on that bus was
+                    real.</p>
+                <p style="margin-top: 2rem;">Thank you for being you. Thank you for the time we had. And thank you for
+                    taking the time to see this.</p>
             </div>
         </div>
     </section>
@@ -1387,9 +1528,12 @@
             <h2 class="section-title">If You Want to Talk</h2>
             <p style="font-size: 1.3rem; margin-bottom: 2rem;">I'm here, whenever you're ready</p>
             <div class="contact-buttons">
-                <a href="#" class="contact-btn" onclick="alert('Add your phone number or messaging app link here'); return false;">Let's Talk</a>
-                <a href="#" class="contact-btn secondary" onclick="alert('Add your email address here'); return false;">Send Me a Message</a>
-                <a href="#" class="contact-btn secondary" onclick="alert('Add a calendar link or meeting scheduler here'); return false;">Coffee Sometime?</a>
+                <a href="#" class="contact-btn"
+                    onclick="alert('Add your phone number or messaging app link here'); return false;">Let's Talk</a>
+                <a href="#" class="contact-btn secondary"
+                    onclick="alert('Add your email address here'); return false;">Send Me a Message</a>
+                <a href="#" class="contact-btn secondary"
+                    onclick="alert('Add a calendar link or meeting scheduler here'); return false;">Coffee Sometime?</a>
             </div>
             <p style="font-size: 1.1rem; margin-top: 3rem; opacity: 0.7;">No pressure. Just an open door.</p>
         </div>
@@ -1418,10 +1562,10 @@
         function updateCarousel() {
             const slides = document.querySelectorAll('.carousel-slide');
             const indicators = document.querySelectorAll('.indicator');
-            
+
             slides.forEach((slide, index) => {
                 slide.classList.remove('active', 'prev', 'next');
-                
+
                 if (index === currentSlideIndex) {
                     slide.classList.add('active');
                 } else if (index === (currentSlideIndex - 1 + totalSlides) % totalSlides) {
@@ -1487,11 +1631,14 @@
                 '.accountability-text, .growth-item, .reason-card, ' +
                 '.apology-item, .promise-card, .future-item, .no-pressure .message'
             );
-            
+
             animatedElements.forEach(el => observer.observe(el));
 
             // Create floating particles
             createParticles();
+
+            // Setup 3D Tilt Effect
+            setupTiltEffect();
 
             // Stagger animation delays for grid items
             document.querySelectorAll('.miss-card').forEach((card, index) => {
@@ -1509,11 +1656,72 @@
             updateCarousel();
         });
 
+        // 3D Tilt Effect Logic
+        function setupTiltEffect() {
+            const tiltElements = document.querySelectorAll('.miss-card, .growth-item, .promise-card, .future-item, .reason-card');
+
+            tiltElements.forEach(el => {
+                el.addEventListener('mousemove', handleTilt);
+                el.addEventListener('mouseleave', resetTilt);
+            });
+        }
+
+        function handleTilt(e) {
+            // Only apply tilt if it's visible (animation finished) to avoid jumping
+            if (!this.classList.contains('visible') && !this.classList.contains('revealed') && window.innerWidth < 768) return;
+
+            // Reduce tilt effect on mobile
+            const intensity = window.innerWidth > 768 ? 15 : 5;
+
+            const rect = this.getBoundingClientRect();
+
+            // Calculate mouse position relative to center of element
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            // Calculate rotation amount based on mouse position
+            const rotateX = ((y - centerY) / centerY) * -intensity;
+            const rotateY = ((x - centerX) / centerX) * intensity;
+
+            // Apply rotation and dynamic shadow
+            this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            this.style.boxShadow = `${-rotateY}px ${rotateX}px 30px rgba(44, 36, 22, 0.2)`;
+
+            // Optional glare effect on child elements
+            const children = this.children;
+            for (let i = 0; i < children.length; i++) {
+                if (children[i].style.transform) {
+                    // slight translation to inner elements for more depth
+                    const currentTranslateZ = children[i].style.transform.match(/translateZ\((.*?)\)/);
+                    if (currentTranslateZ && currentTranslateZ[1]) {
+                        children[i].style.transform = `translateZ(${currentTranslateZ[1]}) translateX(${rotateY * -0.5}px) translateY(${rotateX * 0.5}px)`;
+                    }
+                }
+            }
+        }
+
+        function resetTilt(e) {
+            this.style.transform = '';
+            this.style.boxShadow = '';
+
+            // Reset children
+            const children = this.children;
+            for (let i = 0; i < children.length; i++) {
+                if (children[i].style.transform.includes('translateX')) {
+                    // reset inner element translations, keeping their initial Z-depth
+                    children[i].style.transform = children[i].style.transform.replace(/translateX\(.*?\)/, '').replace(/translateY\(.*?\)/, '');
+                }
+            }
+        }
+
         // Create floating particles background
         function createParticles() {
             const particles = document.getElementById('particles');
             const particleCount = 20;
-            
+
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
@@ -1536,7 +1744,7 @@
             heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
             heart.style.animationDelay = '0s';
             document.body.appendChild(heart);
-            
+
             setTimeout(() => heart.remove(), 7000);
         }
 
@@ -1551,7 +1759,7 @@
                 hiddenText.style.display = 'block';
                 revealedCount++;
                 document.getElementById('revealedCount').textContent = revealedCount;
-                
+
                 // Create hearts on reveal
                 for (let i = 0; i < 3; i++) {
                     setTimeout(() => createHeart(), i * 200);
@@ -1573,4 +1781,5 @@
         });
     </script>
 </body>
+
 </html>
